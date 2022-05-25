@@ -2,13 +2,13 @@ from multiprocessing.connection import wait
 import urllib.request
 import time
 
-def leftmovestart_function():
+def leftmovestart():
     webUrl= urllib.request.urlopen('http://172.31.0.66/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"left_start","byValue":50}}}')
     time.sleep(2)
     webUrl= urllib.request.urlopen('http://172.31.0.66/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"left_stop","byValue":50}}}')
     return print("result code: " + str(webUrl.getcode()))
 
-def rightmovestart_function():
+def rightmovestart():
     webUrl= urllib.request.urlopen('http://172.31.0.66/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"right_start","byValue":50}}}')
     time.sleep(2)
     webUrl= urllib.request.urlopen('http://172.31.0.66/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"right_stop","byValue":50}}}')
