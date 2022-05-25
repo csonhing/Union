@@ -1,6 +1,7 @@
 from multiprocessing.connection import wait
 import urllib.request
 import time
+import sys
 
 def leftmovestart():
     webUrl= urllib.request.urlopen('http://172.31.0.66/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"left_start","byValue":50}}}')
