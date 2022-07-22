@@ -1,13 +1,16 @@
-from multiprocessing.connection import wait
 import urllib.request
 import time
-import sys
-
+direction = "\"left_start\","
+speed = "50"  
+camip = "172.31.0.66"
+chanel = "0,"
+#string builder
+command = "http://"+ camip + "/ajaxcom?szCmd={\"SysCtrl\":{\"PtzCtrl\":{\"nChanel\":" + chanel + "\"szPtzCmd\":" + direction + "\"byValue\":" + speed +"}}}"
 # South Pole Camera 4 Moveset
 def leftmovestart4(x):
-    webUrl= urllib.request.urlopen('http://172.31.0.67/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"left_start","byValue":50}}}')
+    webUrl= urllib.request.urlopen(command)
     time.sleep(x)
-    webUrl= urllib.request.urlopen('http://172.31.0.67/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"left_stop","byValue":50}}}')
+    webUrl= urllib.request.urlopen('http://172.31.0.66/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"left_stop","byValue":50}}}')
     return print("result code: " + str(webUrl.getcode()))
 
 def leftupmovestart4(x):
@@ -52,10 +55,6 @@ def downmovestart4(x):
     webUrl= urllib.request.urlopen('http://172.31.0.67/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"down_stop","byValue":50}}}')
     return print("result code: " + str(webUrl.getcode()))
 
-def presets4(x):
-    webUrl= urllib.request.urlopen('http://172.31.0.67/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"preset_set","byValue":50}}}')
-    return print("result code: " + str(webUrl.getcode()))
-
 def zoom_in4(x):
     webUrl= urllib.request.urlopen('http://172.31.0.67/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"zoomadd_start","byValue":50}}}')
     time.sleep(x)
@@ -69,7 +68,7 @@ def zoom_out4(x):
     return print("result code: " + str(webUrl.getcode()))
 
 def presets4(x):
-    webUrl= urllib.request.urlopen('http://172.31.0.67/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"preset_call","byValue":{x}}}}'.format(x))
+    webUrl= urllib.request.urlopen('http://172.31.0.67/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"preset_call","byValue":50}}}')
     return print("result code: " + str(webUrl.getcode()))
 
 # Middle Camera 5 Moveset
@@ -122,7 +121,7 @@ def downmovestart5(x):
     return print("result code: " + str(webUrl.getcode()))
 
 def presets5(x):
-    webUrl= urllib.request.urlopen('http://172.31.0.69/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"preset_set","byValue":50}}}')
+    webUrl= urllib.request.urlopen('http://172.31.0.69/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"preset_call","byValue":50}}}')
     return print("result code: " + str(webUrl.getcode()))
 
 def zoom_in5(x):
@@ -135,10 +134,6 @@ def zoom_out5(x):
     webUrl= urllib.request.urlopen('http://172.31.0.69/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"zoomdec_start","byValue":50}}}')
     time.sleep(x)
     webUrl= urllib.request.urlopen('http://172.31.0.69/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"zoomdec_stop,"byValue":50}}}')
-    return print("result code: " + str(webUrl.getcode()))
-
-def presets5(x):
-    webUrl= urllib.request.urlopen('http://172.31.0.69/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"preset_call","byValue":{0}}}}'.format(x))
     return print("result code: " + str(webUrl.getcode()))
 
 #South Pole Camera 6 Moveset
@@ -191,7 +186,7 @@ def downmovestart6(x):
     return print("result code: " + str(webUrl.getcode()))
 
 def presets6(x):
-    webUrl= urllib.request.urlopen('http://172.31.0.68/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"preset_set","byValue":50}}}')
+    webUrl= urllib.request.urlopen('http://172.31.0.68/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"preset_call","byValue":50}}}')
     return print("result code: " + str(webUrl.getcode()))
 
 def zoom_in6(x):
@@ -204,8 +199,4 @@ def zoom_out6(x):
     webUrl= urllib.request.urlopen('http://172.31.0.68/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"zoomdec_start","byValue":50}}}')
     time.sleep(x)
     webUrl= urllib.request.urlopen('http://172.31.0.68/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"zoomdec_stop,"byValue":50}}}')
-    return print("result code: " + str(webUrl.getcode()))
-
-def presets6(x):
-    webUrl= urllib.request.urlopen('http://172.31.0.68/ajaxcom?szCmd={"SysCtrl":{"PtzCtrl":{"nChanel":0,"szPtzCmd":"preset_call","byValue":{0}}}}'.format(x))
     return print("result code: " + str(webUrl.getcode()))
