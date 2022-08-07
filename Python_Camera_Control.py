@@ -3,9 +3,9 @@ import time
 direction = "\"left_start\","
 speed = "50"  
 camip = "172.31.0.66"
-chanel = "0,"
+channel = "0,"
 #string builder
-command = "http://"+ camip + "/ajaxcom?szCmd={\"SysCtrl\":{\"PtzCtrl\":{\"nChanel\":" + chanel + "\"szPtzCmd\":" + direction + "\"byValue\":" + speed +"}}}"
+command = "http://"+ camip + "/ajaxcom?szCmd={\"SysCtrl\":{\"PtzCtrl\":{\"nChanel\":" + channel + "\"szPtzCmd\":" + direction + "\"byValue\":" + speed +"}}}"
 # South Pole Camera 4 Moveset
 def leftmovestart4(x):
     webUrl= urllib.request.urlopen(command)
