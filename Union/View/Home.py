@@ -11,8 +11,7 @@ import tkinter as tk
 class Home(tk.Frame):
 
   def __init__(self, parent):
+    tk.Frame.__init__(self, parent)
     self.parent = parent
-    self.frame = tk.Frame(self.parent)
 
-    # Menu bar
-    self.menubar = Menubar(self) # TODO: Fix unresolved imports bug
+    # Instantiate a CCP for each camera (currently 8)

@@ -13,14 +13,12 @@ import tkinter as tk
 class Menubar(tk.Menu):
 
   def __init__(self, parent):
+    tk.Menu.__init__(self, parent)
     self.parent = parent
-    self.menubar = tk.Menu(self.parent)
 
     # File drop-down menu
-    filemenu = tk.Menu(menubar, tearoff = 0)
+    filemenu = tk.Menu(self, tearoff = 0)
     filemenu.add_command(label = "Settings")
     filemenu.add_separator()
     filemenu.add_command(label = "Exit", command = self.parent.destroy)
-    self.menubar.add_cascade(label = "File", menu = filemenu)
-
-    self.parent.config(menu = self.menubar)
+    self.add_cascade(label = "File", menu = filemenu)
